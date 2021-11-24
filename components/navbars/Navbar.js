@@ -88,33 +88,35 @@ export default function Navbar() {
                   Home
                 </Button>
               </NavLink>
-              <NavLink href='/divisions' passHref>
+              <NavLink href='/jadwal' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
                   fontWeight={
-                    router.pathname.startsWith('/divisions')
+                    router.pathname.startsWith('/jadwal')
                       ? 'semibold'
                       : 'normal'
                   }
                   color='gray.500'
                   as='a'
                 >
-                  Divisions
+                  Jadwal
                 </Button>
               </NavLink>
-              <NavLink href='/faq' passHref>
+              <NavLink href='/dokter' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
                   fontWeight={
-                    router.pathname.startsWith('/faq') ? 'semibold' : 'normal'
+                    router.pathname.startsWith('/dokter')
+                      ? 'semibold'
+                      : 'normal'
                   }
                   color='gray.500'
                   as='a'
-                  href='/faq'
+                  href='/dokter'
                 >
-                  FAQ
+                  Dokter
                 </Button>
               </NavLink>
               {/* <NavLink href='/join' passHref>
@@ -148,33 +150,31 @@ export default function Navbar() {
                 Home
               </Button>
             </NavLink>
-            <NavLink href='/divisions' passHref>
+            <NavLink href='/jadwal' passHref>
               <Button
                 variant='ghost'
                 fontSize='md'
                 fontWeight={
-                  router.pathname.startsWith('/divisions')
-                    ? 'semibold'
-                    : 'normal'
+                  router.pathname.startsWith('/jadwal') ? 'semibold' : 'normal'
                 }
                 color='gray.500'
                 as='a'
               >
-                Divisions
+                Jadwal
               </Button>
             </NavLink>
-            <NavLink href='/faq' passHref>
+            <NavLink href='/dokter' passHref>
               <Button
                 variant='ghost'
                 fontSize='md'
                 fontWeight={
-                  router.pathname.startsWith('/faq') ? 'semibold' : 'normal'
+                  router.pathname.startsWith('/dokter') ? 'semibold' : 'normal'
                 }
                 color='gray.500'
                 as='a'
-                href='/faq'
+                href='/dokter'
               >
-                FAQ
+                Dokter
               </Button>
             </NavLink>
             {/* <NavLink href='/join' passHref>

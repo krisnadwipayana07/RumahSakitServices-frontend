@@ -45,31 +45,25 @@ export default function Section2() {
         >
           <GridItem
             colStart='2'
-            colEnd='7'
+            colEnd='6'
             display='flex'
             flexDir='column'
             justifyContent='center'
           >
-            <Heading size='lg'>Immerse Projects</Heading>
+            <Heading size='lg'>Jadwal Dokter</Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} mt='2'>
-              Immerse Projects lets you experience the way a real project is
-              made at big companies or startups. By doing projects together, you
-              would have a "Project Experience" at which you can put on your CV.
-              By having those in your CV, you could land a great internship, a
-              job, or even a client.
-              <br />
-              <br />
-              Having "Work closely with ..." is very valuable in CV, and by
-              joining SIC you could have that on your CV.
+              Lihat langsung jadwal - jadwal yang ada yang telah dibuat oleh
+              dokter tersebut. jadi memudahkan para <b>Pasien</b> dalam mencari
+              jadwal yang telah dokter sediakan secara langsung
             </Text>
             {!isAboveMd && (
               <Box zIndex='2' position='relative' mt={{ base: '5', md: '0' }}>
-                <Image
+                {/* <Image
                   src='/assets/others/immerse-art.svg'
                   quality='100'
                   objectFit='contain'
                   objectPosition='left'
-                />
+                /> */}
               </Box>
             )}
           </GridItem>
@@ -77,12 +71,12 @@ export default function Section2() {
             <GridItem colStart='8' colEnd='12'>
               <Box as='aside' position='relative'>
                 <Box w='md' h='md'>
-                  <NextImage
+                  {/* <NextImage
                     src='/assets/others/immerse-art.svg'
                     quality='100'
                     layout='fill'
                     objectFit='contain'
-                  />
+                  /> */}
                 </Box>
               </Box>
             </GridItem>
@@ -103,18 +97,11 @@ export default function Section2() {
             flexDir='column'
             justifyContent='center'
           >
-            <Heading size='lg'>Career-Focused Group Discussion</Heading>
+            <Heading size='lg'>Live antrian</Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} mt='2'>
-              If you're an absolute beginner in technology, we will guide you
-              from a beginner to an expert with passion. We would hold informal
-              group discussions, discussing computer-science-related things such
-              as solving a problem together or teaching programming or
-              infrastructure from start.
-              <br />
-              <br />
-              Whether you're an absolute beginner or a multi-expert in
-              technology, SIC is for you as long as you have a great interest in
-              building a career in the tech industry.
+              Pasien dapat melihat antrian yang sedang berlangsung secara{' '}
+              <b>Live</b> atau <b>Langsung</b> dari mana-pun dan kapanpun pasien
+              ingin melihatnya
             </Text>
           </GridItem>
           <GridItem

@@ -18,40 +18,12 @@ export default function Footer() {
     <Box as='footer' w='100vw' bgColor='gray.50' py='4'>
       <Container maxW='container.xl'>
         <Stack>
-          <StackItem display='flex' alignItems='center'>
-            <Text size='lg' color='gray.700' d='inline-block'>
-              Follow Us
-            </Text>
-            <Link passHref href='https://www.instagram.com/sic.unud/'>
-              <IconButton
-                variant='link'
-                icon={<Icon as={AiFillInstagram} />}
-                as='a'
-                target='_blank'
-                rel='noopener noreferrer'
-                href='https://www.instagram.com/sic.unud/'
-              />
-            </Link>
-            <Link
-              passHref
-              href='https://www.linkedin.com/company/student-innovation-centre'
-            >
-              <IconButton
-                variant='link'
-                icon={<Icon as={AiFillLinkedin} />}
-                as='a'
-                target='_blank'
-                rel='noopener noreferrer'
-                href='https://www.linkedin.com/company/student-innovation-centre'
-              />
-            </Link>
-          </StackItem>
           <StackItem>
             <Text size='lg' color='gray.700' d='inline-block'>
               Visit Us
             </Text>
             <Text size='lg' color='gray.500' d='inline-block' ml='4'>
-              Sekretariat SIC, Gedung BD Lt. 2, Informatika FMIPA Udayana
+              Jln. Mundeh No.1, Br. Dauhuma Bitera, Gianyar, Bali
             </Text>
           </StackItem>
           <StackItem>
@@ -59,15 +31,12 @@ export default function Footer() {
               Contact Us
             </Text>
             <Text size='lg' color='gray.500' d='inline-block' ml='4'>
-              +62 8776 0462 483
+              +62 878 6163 6910
             </Text>
           </StackItem>
           <Divider height='4' opacity='1' colorScheme='blackAlpha' />
           <StackItem>
-            <Text>
-              © Student Innovation Centre All rights reserved. Website by SIC
-              2021/2022 (generation 2019).
-            </Text>
+            <Text>Copyright © Rumah Sakit Services All rights reserved.</Text>
           </StackItem>
         </Stack>
       </Container>

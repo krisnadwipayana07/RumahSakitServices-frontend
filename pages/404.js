@@ -27,7 +27,7 @@ export default function ErrorPage() {
       textAlign='center'
     >
       <Head>
-        <title>SIC Unud - 404</title>
+        <title>Rumah Sakit Services - 404</title>
       </Head>
       <Box w='32' h='32' position='relative'>
         <Image
