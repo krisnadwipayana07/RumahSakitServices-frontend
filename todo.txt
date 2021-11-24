@@ -1,0 +1,4 @@
+1. Ganti di Navbar dari Next Image ke Image dari Chakra (done)
+2. Buat "ContributorCard" yang dimana copian dari MemberCard (done)
+3. ContributorCard ganti Next Image nya ke Image dari Chakra (done)
+4. Inget implement ContributorCard di [id].js (done)
