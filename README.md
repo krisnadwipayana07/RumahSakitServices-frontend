@@ -35,24 +35,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/krisnadwipayana07"><img src="https://avatars.githubusercontent.com/u/72346645?v=4?s=100" width="100px;" alt=""/><br /><sub><b>I Kadek Krisna Dwi Payana</b></sub></a><br /><a href="https://github.com/SIC-Unud/Main-WebApp/commits?author=krisnadwipayana07" title="Code">💻</a> <a href="https://github.com/SIC-Unud/Main-WebApp/commits?author=krisnadwipayana07" title="Documentation">📖</a> <a href="#tool-krisnadwipayana07" title="Tools">🔧</a> <a href="#eventOrganizing-krisnadwipayana07" title="Event Organizing">📋</a></td>
-    <td align="center"><a href="https://github.com/audipasuatmadi"><img src="https://avatars.githubusercontent.com/u/63685606?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Putu Audi Pasuatmadi</b></sub></a><br /><a href="https://github.com/SIC-Unud/Main-WebApp/commits?author=audipasuatmadi" title="Code">💻</a> <a href="https://github.com/SIC-Unud/Main-WebApp/commits?author=audipasuatmadi" title="Documentation">📖</a> <a href="#tool-audipasuatmadi" title="Tools">🔧</a> <a href="https://github.com/SIC-Unud/Main-WebApp/pulls?q=is%3Apr+reviewed-by%3Aaudipasuatmadi" title="Reviewed Pull Requests">👀</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
