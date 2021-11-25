@@ -58,12 +58,13 @@ export default function Section2() {
             </Text>
             {!isAboveMd && (
               <Box zIndex='2' position='relative' mt={{ base: '5', md: '0' }}>
-                {/* <Image
-                  src='/assets/others/immerse-art.svg'
+                <Image
+                  src='https://www.linkpicture.com/q/RUMAH-SAKIT-SERVICES-modified.png'
                   quality='100'
                   objectFit='contain'
                   objectPosition='left'
-                /> */}
+                  alt='jadwal image'
+                />
               </Box>
             )}
           </GridItem>
@@ -71,12 +72,12 @@ export default function Section2() {
             <GridItem colStart='8' colEnd='12'>
               <Box as='aside' position='relative'>
                 <Box w='md' h='md'>
-                  {/* <NextImage
-                    src='/assets/others/immerse-art.svg'
+                  <NextImage
+                    src='https://www.linkpicture.com/q/RUMAH-SAKIT-SERVICES-modified.png'
                     quality='100'
                     layout='fill'
                     objectFit='contain'
-                  /> */}
+                  />
                 </Box>
               </Box>
             </GridItem>
