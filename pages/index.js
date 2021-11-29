@@ -1,7 +1,7 @@
 import { Box, Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import BaseLayout from '../components/layouts/BaseLayout';
-import Section2 from '../components/libs/section_home/Section2';
+import Section1 from '../components/libs/section_home/Section1';
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
         <title>Rumah Sakit Services - Home</title>
       </Head>
       <Container maxW='container.xl'>
-        <Section2 />
+        <Section1 />
       </Container>
     </Box>
   );

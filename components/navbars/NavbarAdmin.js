@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import Image from 'next/image';
 import NavLink from 'next/link';
 import {
   Box,
@@ -16,13 +15,14 @@ import {
   DrawerHeader,
   DrawerBody,
   Text,
-  Image
+  Avatar,
+  WrapItem
 } from '@chakra-ui/react';
 
 import { FiMenu } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
-export default function NavbarAdmin() {
+export default function NavbarAdmin(props) {
   const navRef = useRef(null);
   const [isNavbarStick, setIsNavbarStick] = useState(false);
   const [isAboveMd] = useMediaQuery('(min-width: 48em)');
@@ -88,14 +88,12 @@ export default function NavbarAdmin() {
                   Home
                 </Button>
               </NavLink> */}
-              <NavLink href='/admin/jadwal' passHref>
+              <NavLink href='/admin' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
                   fontWeight={
-                    router.pathname.startsWith('/admin/jadwal')
-                      ? 'semibold'
-                      : 'normal'
+                    router.pathname.startsWith('/admin') ? 'semibold' : 'normal'
                   }
                   color='gray.500'
                   as='a'
@@ -103,27 +101,18 @@ export default function NavbarAdmin() {
                   Jadwal Dokter
                 </Button>
               </NavLink>
-              {/* <NavLink href='/dokter' passHref>
-                <Button
-                  variant='ghost'
-                  fontSize='md'
-                  fontWeight={
-                    router.pathname.startsWith('/dokter')
-                      ? 'semibold'
-                      : 'normal'
-                  }
-                  color='gray.500'
-                  as='a'
-                  href='/dokter'
-                >
-                  Dokter
-                </Button>
-              </NavLink> */}
-              {/* <NavLink href='/join' passHref>
-                <Button variant='solid' colorScheme='brand' as='a' href='/join'>
-                  Join
-                </Button>
-              </NavLink> */}
+              <WrapItem>
+                <Avatar name={props.user.name} src={props.user.image} />
+              </WrapItem>
+              {props.user.name}
+              <Button
+                variant='solid'
+                bgColor='red.400'
+                color='white'
+                onClick={() => props.signOut()}
+              >
+                Logout
+              </Button>
             </>
           ) : (
             <IconButton
@@ -139,14 +128,12 @@ export default function NavbarAdmin() {
         <DrawerContent>
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody display='flex' flexDirection='column'>
-            <NavLink href='/admin/jadwal' passHref>
+            <NavLink href='/admin' passHref>
               <Button
                 variant='ghost'
                 fontSize='md'
                 fontWeight={
-                  router.pathname.startsWith('/admin/jadwal')
-                    ? 'semibold'
-                    : 'normal'
+                  router.pathname.startsWith('/admin') ? 'semibold' : 'normal'
                 }
                 color='gray.500'
                 as='a'
@@ -168,11 +155,14 @@ export default function NavbarAdmin() {
                 Dokter
               </Button>
             </NavLink> */}
-            {/* <NavLink href='/join' passHref>
-              <Button variant='solid' colorScheme='brand' as='a' href='/join'>
-                Stay Tuned
-              </Button>
-            </NavLink> */}
+            <Button
+              variant='solid'
+              bgColor='red.400'
+              color='white'
+              onClick={() => props.signOut()}
+            >
+              Logout
+            </Button>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

@@ -3,7 +3,6 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
@@ -11,8 +10,9 @@ import {
   Button,
   Link
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import AdminBaseLayout from '../../components/layouts/AdminBaseLayout';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 export default function jadwal() {
   return (
@@ -21,7 +21,7 @@ export default function jadwal() {
         <Heading size='2xl'>Jadwal Anda</Heading>
       </Center>
       <Table variant='simple'>
-        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <TableCaption>Rumah Sakit Services Data</TableCaption>
         <Thead>
           <Tr>
             <Th>RUANGAN</Th>
@@ -54,5 +54,11 @@ export default function jadwal() {
     </Container>
   );
 }
+
+// export const getServerSideProps = withPageAuthRequired({
+//   async getServerSideProps() {
+//     return <h1>TESTTT LOGIN GA?</h1>;
+//   }
+// });
 
 jadwal.getLayout = (page) => <AdminBaseLayout> {page} </AdminBaseLayout>;

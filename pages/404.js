@@ -38,7 +38,10 @@ export default function ErrorPage() {
         />
       </Box>
       <Heading mt='5'>Page Not Found (404)</Heading>
-      <Text>Please make sure the path you are finding is correct</Text>
+      <Text>
+        Mohon Maaf link yang ingin anda tuju tidak ada, Pastikan link yang ingin
+        anda akses tepat
+      </Text>
       <Link href='/' passHref>
         <Button
           variant='link'
