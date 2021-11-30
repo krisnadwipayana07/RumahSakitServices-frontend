@@ -3,24 +3,52 @@ import { Button } from '@chakra-ui/button';
 import { Box, Center, Heading, Link } from '@chakra-ui/layout';
 import NavbarAdmin from '../navbars/NavbarAdmin';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import useGetDoctorByEmail from '../../lib/hook/useGetDoctorByEmail';
+import useInsertDoctor from '../../lib/hook/useInsertDoctor';
 
-//base admin layout
 export default function AdminBaseLayout({ children }) {
-  const { data: session } = useSession();
+  const { data } = useSession();
+  const { getDoctorEmail, data: resultGetDoctor } = useGetDoctorByEmail();
+  const { insertDoctor, error } = useInsertDoctor();
 
   useEffect(() => {
-    console.log(process.env.GOOGLE_CLIENT_ID);
-  }, []);
+    if (data) {
+      getDoctorEmail({ variables: { email: data.user.email } });
+    }
+    // console.log(resultGetDoctor);
+    console.log('ada ga ', resultGetDoctor?.doctor.length);
+    if (resultGetDoctor?.doctor?.length === 0) {
+      // console.log(data);
+      console.log('insert Doctor');
+      insertDoctor({
+        variables: {
+          nama: data.user.name,
+          email: data.user.email,
+          picture: data.user.image
+        }
+      });
+    }
+    if (error) {
+      console.log(error);
+    }
+    if (resultGetDoctor?.doctor?.length === 1) {
+      // console.log(resultGetDoctor.doctor[0].id);
+      localStorage.setItem('userId', resultGetDoctor.doctor[0].id);
+    }
+  }, [data, resultGetDoctor]);
 
-  if (session) {
-    console.log(session);
+  if (data) {
     return (
       <Box as='main' pt='4'>
-        <NavbarAdmin user={session.user} signOut={signOut} />
+        <NavbarAdmin user={data.user} signOut={signOut} />
         {children}
       </Box>
     );
   }
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <>
@@ -38,10 +66,6 @@ export default function AdminBaseLayout({ children }) {
             Login
           </Button>
         </Center>
-
-        {/* <a href='https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=149577248564-bl61686v06uoeq5nlvqle0jicgcsdr3p.apps.googleusercontent.com&scope=openid%20email%20profile&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fgoogle&prompt=consent&access_type=offline&nextauth=signin%2Cgoogle&state=rl_RUR2IcEz89PeKCxkqVyxQaRhMaoq5VsAw2VdBXqU&code_challenge=H4XGI9pe4FYisvNNHLYyuGbiefZznxDpOrxKjcLS6DI&code_challenge_method=S256&flowName=GeneralOAuthFlow'>
-        login
-      </a> */}
       </Box>
     </>
   );

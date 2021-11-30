@@ -16,7 +16,8 @@ import {
   DrawerBody,
   Text,
   Avatar,
-  WrapItem
+  WrapItem,
+  Heading
 } from '@chakra-ui/react';
 
 import { FiMenu } from 'react-icons/fi';
@@ -128,6 +129,12 @@ export default function NavbarAdmin(props) {
         <DrawerContent>
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody display='flex' flexDirection='column'>
+            <WrapItem justifyContent='center'>
+              <Avatar name={props.user.name} src={props.user.image} />
+            </WrapItem>
+            <Text fontWeight='bold' my='2' textAlign='center'>
+              {props.user.name}
+            </Text>
             <NavLink href='/admin' passHref>
               <Button
                 variant='ghost'
