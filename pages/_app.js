@@ -7,6 +7,9 @@ import '../styles/nprogress.css'; //styles of nprogress
 import '../styles/main.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { SessionProvider } from 'next-auth/react';
+import { ApolloProvider } from '@apollo/client';
+import { client } from '../lib/ApolloClient';
 
 const theme = extendTheme({
   fonts: {
@@ -53,7 +56,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -75,9 +78,13 @@ function MyApp({ Component, pageProps }) {
 
   const getLayout = Component.getLayout || ((page) => page);
   return (
-    <ChakraProvider theme={theme}>
-      {getLayout(<Component {...pageProps} />)}
-    </ChakraProvider>
+    <ApolloProvider client={client}>
+      <SessionProvider session={session}>
+        <ChakraProvider theme={theme}>
+          {getLayout(<Component {...pageProps} />)}
+        </ChakraProvider>
+      </SessionProvider>
+    </ApolloProvider>
   );
 }
 

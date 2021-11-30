@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import Image from 'next/image';
 import NavLink from 'next/link';
 import {
   Box,
@@ -16,13 +15,15 @@ import {
   DrawerHeader,
   DrawerBody,
   Text,
-  Image
+  Avatar,
+  WrapItem,
+  Heading
 } from '@chakra-ui/react';
 
 import { FiMenu } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
-export default function Navbar() {
+export default function NavbarAdmin(props) {
   const navRef = useRef(null);
   const [isNavbarStick, setIsNavbarStick] = useState(false);
   const [isAboveMd] = useMediaQuery('(min-width: 48em)');
@@ -77,7 +78,7 @@ export default function Navbar() {
         <Box display='flex' alignItems='center' gridGap='4'>
           {isAboveMd ? (
             <>
-              <NavLink href='/' passHref>
+              {/* <NavLink href='/' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
@@ -87,48 +88,32 @@ export default function Navbar() {
                 >
                   Home
                 </Button>
-              </NavLink>
-              <NavLink href='/jadwal' passHref>
+              </NavLink> */}
+              <NavLink href='/admin' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
                   fontWeight={
-                    router.pathname.startsWith('/jadwal')
-                      ? 'semibold'
-                      : 'normal'
+                    router.pathname.startsWith('/admin') ? 'semibold' : 'normal'
                   }
                   color='gray.500'
                   as='a'
                 >
-                  Jadwal
+                  Jadwal Dokter
                 </Button>
               </NavLink>
-              <NavLink href='/dokter' passHref>
-                <Button
-                  variant='ghost'
-                  fontSize='md'
-                  fontWeight={
-                    router.pathname.startsWith('/dokter')
-                      ? 'semibold'
-                      : 'normal'
-                  }
-                  color='gray.500'
-                  as='a'
-                  href='/dokter'
-                >
-                  Dokter
-                </Button>
-              </NavLink>
-              <NavLink href='/daftar' passHref>
-                <Button
-                  variant='solid'
-                  colorScheme='brand'
-                  as='a'
-                  href='/daftar'
-                >
-                  Daftar Kunjungan
-                </Button>
-              </NavLink>
+              <WrapItem>
+                <Avatar name={props.user.name} src={props.user.image} />
+              </WrapItem>
+              {props.user.name}
+              <Button
+                variant='solid'
+                bgColor='red.400'
+                color='white'
+                onClick={() => props.signOut()}
+              >
+                Logout
+              </Button>
             </>
           ) : (
             <IconButton
@@ -144,31 +129,26 @@ export default function Navbar() {
         <DrawerContent>
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody display='flex' flexDirection='column'>
-            <NavLink href='/' passHref>
-              <Button
-                variant='ghost'
-                fontSize='md'
-                fontWeight={router.pathname === '/' ? 'semibold' : 'normal'}
-                color='gray.500'
-                as='a'
-              >
-                Home
-              </Button>
-            </NavLink>
-            <NavLink href='/jadwal' passHref>
+            <WrapItem justifyContent='center'>
+              <Avatar name={props.user.name} src={props.user.image} />
+            </WrapItem>
+            <Text fontWeight='bold' my='2' textAlign='center'>
+              {props.user.name}
+            </Text>
+            <NavLink href='/admin' passHref>
               <Button
                 variant='ghost'
                 fontSize='md'
                 fontWeight={
-                  router.pathname.startsWith('/jadwal') ? 'semibold' : 'normal'
+                  router.pathname.startsWith('/admin') ? 'semibold' : 'normal'
                 }
                 color='gray.500'
                 as='a'
               >
-                Jadwal
+                Jadwal Dokter
               </Button>
             </NavLink>
-            <NavLink href='/dokter' passHref>
+            {/* <NavLink href='/dokter' passHref>
               <Button
                 variant='ghost'
                 fontSize='md'
@@ -181,12 +161,15 @@ export default function Navbar() {
               >
                 Dokter
               </Button>
-            </NavLink>
-            <NavLink href='/daftar' passHref>
-              <Button variant='solid' colorScheme='brand' as='a' href='/daftar'>
-                Daftar Kunjungan
-              </Button>
-            </NavLink>
+            </NavLink> */}
+            <Button
+              variant='solid'
+              bgColor='red.400'
+              color='white'
+              onClick={() => props.signOut()}
+            >
+              Logout
+            </Button>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
