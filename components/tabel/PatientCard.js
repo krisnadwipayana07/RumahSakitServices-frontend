@@ -6,7 +6,7 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
+  Text,
   Button,
   AlertDialog,
   AlertDialogBody,
@@ -16,22 +16,34 @@ import {
   AlertDialogOverlay,
   AlertDialogCloseButton
 } from '@chakra-ui/react';
+import useDeletePasein from '../../lib/hook/useDeletePatient';
 
-export default function PatientCard({ data }) {
+export default function PatientCard({ data, reload }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
+
+  const { deletePasien } = useDeletePasein();
+
+  const onDelete = () => {
+    console.log(data.id);
+    deletePasien({ variables: { id: data.id } });
+    reload();
+    setIsOpen(false);
+  };
   return (
     <>
       <Tr>
         <Td>{data.nama} </Td>
         <Td>{data.nik} </Td>
-        <Td>{data.keluhan}</Td>
+        <Td>
+          <Text noOfLines={[1, 1]}>{data.keluhan}</Text>
+        </Td>
         <Td isNumeric color='white'>
-          <Button mx='3' bgColor='green.400'>
+          <Button m='1' bgColor='green.400'>
             Selesai
           </Button>
-          <Button mx='3' bgColor='red.400' onClick={() => setIsOpen(true)}>
+          <Button m='1' bgColor='red.400' onClick={() => setIsOpen(true)}>
             Tidak Hadir
           </Button>
         </Td>
@@ -49,13 +61,13 @@ export default function PatientCard({ data }) {
           <AlertDialogHeader>Tidak Hadir?</AlertDialogHeader>
           <AlertDialogCloseButton />
           <AlertDialogBody>
-            Apakah benar pasien atas nama ... tidak hadir?
+            Apakah benar pasien atas nama {data.nama} tidak hadir?
           </AlertDialogBody>
           <AlertDialogFooter>
             <Button ref={cancelRef} onClick={onClose}>
               Belum
             </Button>
-            <Button colorScheme='red' ml={3} onClick={onClose}>
+            <Button colorScheme='red' ml={3} onClick={onDelete}>
               Iya
             </Button>
           </AlertDialogFooter>

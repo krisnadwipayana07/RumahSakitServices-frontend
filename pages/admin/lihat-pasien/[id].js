@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Center, Container, Heading, Link } from '@chakra-ui/layout';
 import {
   Table,
@@ -7,15 +7,7 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
-  Button,
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
-  AlertDialogCloseButton
+  TableCaption
 } from '@chakra-ui/react';
 import AdminBaseLayout from '../../../components/layouts/AdminBaseLayout';
 import { useRouter } from 'next/router';
@@ -25,12 +17,19 @@ import PatientCard from '../../../components/tabel/PatientCard';
 export default function ListPasien() {
   const router = useRouter();
   const { id } = router.query;
+  const [refresh, setRefresh] = useState(0);
 
-  const { getAllPatient, data, error, loading } = UseGetAllSchedule();
-
+  const { getAllPatient, data, error, loading, refetch } = UseGetAllSchedule();
+  const reload = () => {
+    setRefresh(refresh + 1);
+  };
   useEffect(() => {
     getAllPatient({ variables: { scheduleId: id } });
   }, [id]);
+
+  useEffect(() => {
+    refetch();
+  }, [refresh]);
 
   return (
     <>
@@ -50,7 +49,7 @@ export default function ListPasien() {
           </Thead>
           <Tbody>
             {data?.patient.map((item, key) => (
-              <PatientCard key={key} data={item} />
+              <PatientCard key={key} data={item} reload={reload} />
             ))}
           </Tbody>
         </Table>
