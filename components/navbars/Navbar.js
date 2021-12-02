@@ -88,7 +88,7 @@ export default function Navbar() {
                   Home
                 </Button>
               </NavLink>
-              <NavLink href='/jadwal' passHref>
+              {/* <NavLink href='/jadwal' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
@@ -102,7 +102,7 @@ export default function Navbar() {
                 >
                   Jadwal
                 </Button>
-              </NavLink>
+              </NavLink> */}
               <NavLink href='/dokter' passHref>
                 <Button
                   variant='ghost'
