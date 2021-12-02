@@ -88,7 +88,7 @@ export default function Navbar() {
                   Home
                 </Button>
               </NavLink>
-              <NavLink href='/jadwal' passHref>
+              {/* <NavLink href='/jadwal' passHref>
                 <Button
                   variant='ghost'
                   fontSize='md'
@@ -102,7 +102,7 @@ export default function Navbar() {
                 >
                   Jadwal
                 </Button>
-              </NavLink>
+              </NavLink> */}
               <NavLink href='/dokter' passHref>
                 <Button
                   variant='ghost'
@@ -119,11 +119,16 @@ export default function Navbar() {
                   Dokter
                 </Button>
               </NavLink>
-              {/* <NavLink href='/join' passHref>
-                <Button variant='solid' colorScheme='brand' as='a' href='/join'>
-                  Join
+              <NavLink href='/daftar' passHref>
+                <Button
+                  variant='solid'
+                  colorScheme='brand'
+                  as='a'
+                  href='/daftar'
+                >
+                  Daftar Kunjungan
                 </Button>
-              </NavLink> */}
+              </NavLink>
             </>
           ) : (
             <IconButton
@@ -177,11 +182,11 @@ export default function Navbar() {
                 Dokter
               </Button>
             </NavLink>
-            {/* <NavLink href='/join' passHref>
-              <Button variant='solid' colorScheme='brand' as='a' href='/join'>
-                Stay Tuned
+            <NavLink href='/daftar' passHref>
+              <Button variant='solid' colorScheme='brand' as='a' href='/daftar'>
+                Daftar Kunjungan
               </Button>
-            </NavLink> */}
+            </NavLink>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
