@@ -49,7 +49,7 @@ export default function Daftar() {
     error: errorInsert
   } = useInsertPasein();
 
-  const [jadwal, setJadwal] = React.useState(0);
+  const [jadwal, setJadwal] = React.useState(null);
 
   useEffect(() => {
     getLastAntrian({ variables: { scheduleId: jadwal } });
