@@ -39,13 +39,13 @@ export default function ScheduleCard({ data, user }) {
         </Text>
       </Box>
 
-      {/* <Box p='2'>
-        <Link href={`/dokter/${data.id}`}>
+      <Box p='2'>
+        <Link href={`/jadwal/${data.id}`} passHref>
           <Button color='white' bgColor='gray.400'>
             lihat jadwal
           </Button>
         </Link>
-      </Box> */}
+      </Box>
     </Box>
   );
 }

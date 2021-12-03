@@ -17,6 +17,7 @@ export default function AdminBaseLayout({ children }) {
     }
     // console.log(resultGetDoctor);
     console.log('ada ga ', resultGetDoctor?.doctor.length);
+    console.log(data);
     if (resultGetDoctor?.doctor?.length === 0) {
       // console.log(data);
       console.log('insert Doctor');

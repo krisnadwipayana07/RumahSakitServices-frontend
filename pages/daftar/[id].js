@@ -22,13 +22,15 @@ import {
   AlertDialogOverlay,
   FormErrorMessage
 } from '@chakra-ui/react';
-import { validationSchema } from '../components/schema/validationRegistration';
+import { validationSchema } from '../../components/schema/validationRegistration';
 import { useFormik, Form, Formik, Field } from 'formik';
-import UseGetAllSchedule from '../lib/hook/useGetAllSchedule';
-import useInsertPasein from '../lib/hook/useInsertPasein';
-import useGetLastAntrian from '../lib/hook/useGetLastAntrian';
+import UseGetAllSchedule from '../../lib/hook/useGetAllSchedule';
+import useInsertPasein from '../../lib/hook/useInsertPasein';
+import useGetLastAntrian from '../../lib/hook/useGetLastAntrian';
 
 export default function Daftar() {
+  const router = useRouter();
+  const { id } = router.query;
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
@@ -49,7 +51,7 @@ export default function Daftar() {
     error: errorInsert
   } = useInsertPasein();
 
-  const [jadwal, setJadwal] = React.useState(0);
+  const [jadwal, setJadwal] = React.useState();
 
   useEffect(() => {
     if (id != 0) {

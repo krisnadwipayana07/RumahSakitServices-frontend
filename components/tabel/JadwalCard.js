@@ -28,9 +28,9 @@ export default function JadwalCard({ data }) {
             Edit
           </Button>
         </Link> */}
-        <Button mx='3' bgColor='red.400'>
+        {/* <Button mx='3' bgColor='red.400'>
           Hapus
-        </Button>
+        </Button> */}
       </Td>
     </Tr>
   );

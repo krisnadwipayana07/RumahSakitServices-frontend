@@ -22,6 +22,19 @@ export default function Jadwal() {
   if (loading) {
     <p>loading...</p>;
   }
+
+  if (data?.doctor === []) {
+    <Box
+      position='fixed'
+      top='50%'
+      left='50%'
+      transform='translate(-50%, -50%)'
+    >
+      <Heading textAlign='center' my='3'>
+        Mohon maaf data tidak ditemukan
+      </Heading>
+    </Box>;
+  }
   return (
     <Box>
       <Center m='2'>
