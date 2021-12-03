@@ -52,12 +52,6 @@ export default function Daftar() {
   const [jadwal, setJadwal] = React.useState(0);
 
   useEffect(() => {
-    if (id != 0) {
-      setJadwal(id);
-    }
-  }, [id]);
-
-  useEffect(() => {
     getLastAntrian({ variables: { scheduleId: jadwal } });
   }, [jadwal]);
 
