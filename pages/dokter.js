@@ -9,7 +9,8 @@ import {
   SimpleGrid,
   GridItem,
   Text,
-  Button
+  Button,
+  Grid
 } from '@chakra-ui/react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import DocterCard from '../components/libs/section_jadwal/DocterCard';
@@ -23,20 +24,23 @@ export default function Dokter() {
   }, [data]);
 
   return (
-    <Box p='5'>
+    <Box p='5' minH='76vh'>
       <Box color='gray.200' p='24px' mx={isAboveMd ? '32' : '0'} my='2'>
         <Center mb='7'>
-          <Heading>{'Dokter '} </Heading>
-          <Heading color='white'>s</Heading>
-          <Heading color='blue.400'>{''} Rumah Sakit</Heading>
+          <Text fontWeight={700} fontSize='4xl'>
+            Dokter
+            <span style={{ color: '#4299e1' }}> Rumah Sakit</span>
+          </Text>
         </Center>
         {loading && <p>loading...</p>}
         {error && (
           <p>pardon the interuption, gagal mengambil data silahkan refresh</p>
         )}
-        {data?.doctor.map((item, key) => (
-          <DocterCard data={item} key={key} />
-        ))}
+        <SimpleGrid columns={[1, 2, null, null, 4, 5]}>
+          {data?.doctor.map((item, key) => (
+            <DocterCard data={item} key={key} />
+          ))}
+        </SimpleGrid>
       </Box>
     </Box>
   );

@@ -17,6 +17,7 @@ import {
   AlertDialogCloseButton
 } from '@chakra-ui/react';
 import useDeletePasein from '../../lib/hook/useDeletePatient';
+import Link from 'next/link';
 
 export default function PatientCard({ data, reload }) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -34,15 +35,17 @@ export default function PatientCard({ data, reload }) {
   return (
     <>
       <Tr>
+        <Td>{data.antrian} </Td>
         <Td>{data.nama} </Td>
-        <Td>{data.nik} </Td>
         <Td>
           <Text noOfLines={[1, 1]}>{data.keluhan}</Text>
         </Td>
         <Td isNumeric color='white'>
-          <Button m='1' bgColor='green.400'>
-            Selesai
-          </Button>
+          <Link href={`/admin/lihat-pasien/selesai/${data.id}`}>
+            <Button m='1' bgColor='green.400'>
+              Selesai
+            </Button>
+          </Link>
           <Button m='1' bgColor='red.400' onClick={() => setIsOpen(true)}>
             Tidak Hadir
           </Button>

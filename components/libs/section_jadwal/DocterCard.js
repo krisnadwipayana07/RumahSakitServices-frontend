@@ -9,14 +9,15 @@ export default function DocterCard({ data }) {
       border='1px'
       color='gray.200'
       p='20px'
-      display='inline-table'
+      display='flex'
+      flexDir='column'
       alignItems='center'
+      justifyContent='center'
       m='5'
     >
       <Box p='2'>
         <Avatar size='2xl' name={data.nama} src={data.profile_pic} />
       </Box>
-
       <Box p='2'>
         <Text fontSize='md' lineHeight='5' fontWeight='bold' color='gray.700'>
           {data.nama}

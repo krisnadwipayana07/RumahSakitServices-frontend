@@ -16,14 +16,6 @@ export default function Section1() {
   return (
     <Box id='features' py='40'>
       <div style={{ textAlign: 'center' }} data-aos='fade-up'>
-        <Image
-          src='https://www.linkpicture.com/q/RUMAH-SAKIT-SERVICES-modified.png'
-          alt='rumah sakit services logo'
-          width='40'
-          marginLeft='auto'
-          marginRight='auto'
-          marginBottom='5'
-        />
         <Heading as='h2' size='4xl'>
           Rumah Sakit Services
         </Heading>

@@ -1,7 +1,7 @@
 import { Avatar } from '@chakra-ui/avatar';
 import { Box, Center, Heading, Text } from '@chakra-ui/layout';
 import React, { useEffect } from 'react';
-import { useMediaQuery } from '@chakra-ui/react';
+import { useMediaQuery, SimpleGrid } from '@chakra-ui/react';
 import BaseLayout from '../../components/layouts/BaseLayout';
 import UseGetDoctorSchedule from '../../lib/hook/useGetDoctorSchedule';
 import { useRouter } from 'next/router';
@@ -11,7 +11,7 @@ export default function Jadwal() {
   const router = useRouter();
   const { id } = router.query;
 
-  const [isAboveMd] = useMediaQuery('(min-width: 48em)');
+  const [isAboveMd] = useMediaQuery('(max-width: 48em)');
   const { getDoctorSchedule, data, error, loading } = UseGetDoctorSchedule();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Jadwal() {
     </Box>;
   }
   return (
-    <Box>
+    <Box minH='76vh'>
       <Center m='2'>
         <Avatar
           size='2xl'
@@ -63,8 +63,8 @@ export default function Jadwal() {
         borderRadius='25px'
         border='1px'
         color='gray.200'
-        p='24px'
-        mx={isAboveMd ? '32' : '0'}
+        p='10'
+        mx={!isAboveMd ? '32' : '5'}
         my='2'
         bor
       >
@@ -75,9 +75,16 @@ export default function Jadwal() {
       <Center m='10'>
         <Heading color='blue.400'> Jadwal Dokter</Heading>
       </Center>
-      {data?.doctor[0].schedules.map((item, key) => (
-        <ScheduleCard key={key} data={item} user={data?.doctor[0]} />
-      ))}
+      {data?.doctor[0].schedules.length === 0 && (
+        <Text textAlign='center'>
+          Mohon maaf tidak ada jadwal yang tersedia...
+        </Text>
+      )}
+      <SimpleGrid columns={[1, 3, 5, 6]}>
+        {data?.doctor[0].schedules.map((item, key) => (
+          <ScheduleCard key={key} data={item} user={data?.doctor[0]} />
+        ))}
+      </SimpleGrid>
     </Box>
   );
 }

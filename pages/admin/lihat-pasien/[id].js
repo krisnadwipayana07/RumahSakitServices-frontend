@@ -41,8 +41,8 @@ export default function ListPasien() {
           <TableCaption>List Pasien yang mendaftar pada jadwal</TableCaption>
           <Thead>
             <Tr>
+              <Th>ANTRIAN</Th>
               <Th>NAMA PASIEN</Th>
-              <Th>NIK</Th>
               <Th>Keluhan</Th>
               <Th></Th>
             </Tr>
